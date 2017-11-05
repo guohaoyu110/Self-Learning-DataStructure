@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="StudentInfor">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties>
+      <enabled value="false"/>
+      <focusCycleRoot value="false"/>
+      <minimumSize width="100" height="80"/>
+      <preferredSize width="100" height="100"/>
+    </properties>
+    <border type="none" title=""/>
+    <children>
+      <component id="3acdc" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <text value="学生信息"/>
+        </properties>
+      </component>
+      <component id="fdcb3" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <text value="学号 "/>
+        </properties>
+      </component>
+      <component id="f5fd2" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="                             "/>
+        </properties>
+      </component>
+      <component id="7be2b" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <text value="姓名"/>
+        </properties>
+      </component>
+      <component id="f8509" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="                       "/>
+        </properties>
+      </component>
+      <component id="9ce5" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <text value="数学"/>
+        </properties>
+      </component>
+      <component id="1934c" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="             "/>
+        </properties>
+      </component>
+      <component id="742d8" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <text value="英语 "/>
+        </properties>
+      </component>
+      <component id="ed8b0" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+        <constraints/>
+        <properties>
+          <autoscrolls value="true"/>
+          <text value="                      "/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

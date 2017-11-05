@@ -1,0 +1,97 @@
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+public class Main extends JApplet implements ActionListener{
+    private String alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private final static int SIZE=3;
+    private JLabel outputs[];
+    private JCheckBox checkboxes[];
+    private Thread threads[];
+    private boolean suspended[];
+    static int count=0;
+    public void init(){
+        outputs=new JLabel[SIZE];
+        checkboxes=new JCheckBox[SIZE];
+        threads=new Thread[SIZE];
+        suspended=new boolean[SIZE];
+        Container container=getContentPane();
+        container.setLayout(new GridLayout(SIZE,2,5,5));
+        for(int count=0;count<SIZE;count++){
+            outputs[count]=new JLabel();
+            outputs[count].setBackground(Color.GREEN);
+            outputs[count].setOpaque(true);
+            container.add(outputs[count]);
+            checkboxes[count]=new JCheckBox("线程挂起");
+            checkboxes[count].addActionListener(this);
+            container.add(checkboxes[count]);
+        }
+    }
+    public void start()
+    {
+        for(int count=0;count<threads.length;count++)
+        {
+            threads[count]=new Thread(new RunnableObject(),"线程"+(count+1));
+            threads[count].start();
+        }
+    }
+    private int getIndex(Thread current)
+    {
+        for(int count=0;count<threads.length;count++)
+            if(current==threads[count])
+                return count;
+        return -1;
+    }
+    public synchronized void stop()
+    {
+        for(int count=0;count<threads.length;count++)
+            threads[count]=null;
+        notifyAll();
+    }
+    public synchronized void actionPerformed(ActionEvent event)
+    {
+        for(int count=0;count<checkboxes.length;count++)
+        {
+            if(event.getSource()==checkboxes[count])
+            {
+                suspended[count]=!suspended[count];
+                outputs[count].setBackground(suspended[count]?Color.RED:Color.GREEN);
+                if(!suspended[count])
+                    notifyAll();
+                return;
+            }
+        }
+    }
+    public class RunnableObject implements Runnable{
+        public void run()
+        {
+            final Thread currentThread=Thread.currentThread();
+            final int index=getIndex(currentThread);
+            System.err.println("index="+index+",thread="+currentThread.getName());
+            System.err.println("count="+count++);
+            while(threads[index]==currentThread){
+                try{
+                    Thread.sleep((int)(Math.random()*1000));
+                    synchronized(Main.this)
+                    {
+                        while(suspended[index]&&threads[index]==currentThread)
+                        {
+                            Main.this.wait();
+                        }
+                    }
+                }
+                catch(InterruptedException exception)
+                {
+                    exception.printStackTrace();
+                }
+                SwingUtilities.invokeLater(
+                        new Runnable(){
+                            public void run(){
+                                char displayChar=alphabet.charAt((int)(Math.random()*26));
+                                outputs[index].setText(currentThread.getName()+":"+displayChar);
+                            }
+                        });
+            }
+        }
+    }
+}
