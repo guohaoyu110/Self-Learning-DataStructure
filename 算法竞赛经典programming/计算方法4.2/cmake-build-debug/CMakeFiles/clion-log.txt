@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/Users/haoyuguo/Desktop/算法编程练习/算法竞赛经典 programming/计算方法4.2"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/haoyuguo/Desktop/算法编程练习/算法竞赛经典 programming/计算方法4.2/cmake-build-debug

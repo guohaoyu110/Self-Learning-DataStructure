@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/haoyuguo/Desktop/算法编程练习/算法竞赛经典 programming/dfs fill in the numbers/main.cpp
+iostream
+-
+algorithm
+-
+cmath
+-
+

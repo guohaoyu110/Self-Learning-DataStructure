@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/haoyuguo/Desktop/算法编程练习/算法竞赛经典 programming/DFS-part of sums problem/main.cpp
+iostream
+-
+
