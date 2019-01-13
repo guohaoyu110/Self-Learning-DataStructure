@@ -40,17 +40,17 @@ def main():
     fc = FullyConnect(2, 1) #就是起始的定义
     sigmoid = Sigmoid()
     x = np.array([[1], [2]])
-    print 'parameters: weights:', fc.weights, ' bias:', fc.bias, ' input: ', x
+    print ('parameters: weights:', fc.weights, ' bias:', fc.bias, ' input: ', x)
 
     # 执行前向计算
     y1 = fc.forward(x)
     y2 = sigmoid.forward(y1)
-    print 'forward result: ', y2
+    print ('forward result: ', y2)
 
     # 执行反向传播
     d1 = sigmoid.backward()
     dx = fc.backward(d1)
-    print 'backward result: ', dx
+    print ('backward result: ', dx)
 
 
 if __name__ == '__main__':

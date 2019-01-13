@@ -87,16 +87,13 @@ plt.ylabel('Price')
 plt.show()
 
 """
-svm
 for k in ['linear','poly','rbf','sigmoid']:
     clf2 = svm.SVR(k)
     clf2.fit(X_train,y_train)
     accuracy2 = clf2.score(X_test,y_test)    
-    print(accuracy2)as.io.data as web
-#from pandas_datareader import data,wb as web
-"""
+    print(accuracy2)
+
 """
 clf3 = svm.SVC(kernel='linear',C=1)
 scores = cross_val_score(clf3,X,y,cv=5,scoring='f1_macro')
 print(scores)
-"""
